@@ -22,7 +22,7 @@ dependencyResolutionManagement {
         google()
         maven { url = uri("https://jitpack.io") }
         maven {
-            // A repository must be specified for some reason. "registry" is a dummy.
+            // Primary repository for custom revanced packages
             url = uri("https://maven.pkg.github.com/zjns/registry")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
@@ -30,6 +30,7 @@ dependencyResolutionManagement {
             }
         }
         maven {
+            // Fallback: revanced-patcher specific repository
             url = uri("https://maven.pkg.github.com/zjns/revanced-patcher")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
@@ -37,6 +38,7 @@ dependencyResolutionManagement {
             }
         }
         maven {
+            // Fallback: apktool-lib specific repository
             url = uri("https://maven.pkg.github.com/zjns/apktool-lib")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
@@ -44,6 +46,7 @@ dependencyResolutionManagement {
             }
         }
         maven {
+            // Fallback: BiliRoamingX main project repository
             url = uri("https://maven.pkg.github.com/BiliRoamingX/BiliRoamingX")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
@@ -51,6 +54,7 @@ dependencyResolutionManagement {
             }
         }
         maven {
+            // Fallback: Fork repository (current fork)
             url = uri("https://maven.pkg.github.com/Starfallan/BiliRoamingX")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
@@ -58,6 +62,7 @@ dependencyResolutionManagement {
             }
         }
         maven {
+            // Fallback: zjns's BiliRoamingX repository
             url = uri("https://maven.pkg.github.com/zjns/BiliRoamingX")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
