@@ -50,6 +50,13 @@ dependencyResolutionManagement {
                 password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
             }
         }
+        maven {
+            url = uri("https://maven.pkg.github.com/Starfallan/BiliRoamingX")
+            credentials {
+                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
+                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
 
