@@ -22,48 +22,8 @@ dependencyResolutionManagement {
         google()
         maven { url = uri("https://jitpack.io") }
         maven {
-            // Primary repository for custom revanced packages
+            // A repository must be specified for some reason. "registry" is a dummy.
             url = uri("https://maven.pkg.github.com/zjns/registry")
-            credentials {
-                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
-                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
-            }
-        }
-        maven {
-            // Fallback: revanced-patcher specific repository
-            url = uri("https://maven.pkg.github.com/zjns/revanced-patcher")
-            credentials {
-                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
-                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
-            }
-        }
-        maven {
-            // Fallback: apktool-lib specific repository
-            url = uri("https://maven.pkg.github.com/zjns/apktool-lib")
-            credentials {
-                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
-                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
-            }
-        }
-        maven {
-            // Fallback: BiliRoamingX main project repository
-            url = uri("https://maven.pkg.github.com/BiliRoamingX/BiliRoamingX")
-            credentials {
-                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
-                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
-            }
-        }
-        maven {
-            // Fallback: Fork repository (current fork)
-            url = uri("https://maven.pkg.github.com/Starfallan/BiliRoamingX")
-            credentials {
-                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
-                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
-            }
-        }
-        maven {
-            // Fallback: zjns's BiliRoamingX repository
-            url = uri("https://maven.pkg.github.com/zjns/BiliRoamingX")
             credentials {
                 username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
                 password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")

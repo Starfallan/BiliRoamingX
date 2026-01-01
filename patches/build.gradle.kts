@@ -16,6 +16,10 @@ dependencies {
     implementation(libs.smali)
     // Used in JsonGenerator.
     implementation(libs.gson)
+    // Add apktool-lib explicitly to resolve transitive dependency issue
+    // The custom revanced-patcher expects kofua.app.revanced:apktool-lib:2.9.3
+    // but the actual package is org.apktool:apktool-lib:2.9.3 from Maven Central
+    runtimeOnly("org.apktool:apktool-lib:2.9.3")
 }
 
 tasks.jar {
