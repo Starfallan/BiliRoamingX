@@ -29,6 +29,27 @@ dependencyResolutionManagement {
                 password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
             }
         }
+        maven {
+            url = uri("https://maven.pkg.github.com/zjns/revanced-patcher")
+            credentials {
+                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
+                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/zjns/apktool-lib")
+            credentials {
+                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
+                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/BiliRoamingX/BiliRoamingX")
+            credentials {
+                username = gprUser.orNull ?: System.getenv("GITHUB_ACTOR")
+                password = gprKey.orNull ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
 
