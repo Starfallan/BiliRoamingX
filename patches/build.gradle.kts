@@ -11,18 +11,21 @@ plugins {
 
 group = "app.revanced.bilibili"
 
-dependencies {
-    implementation(libs.revanced.patcher) {
-        // Exclude the non-existent transitive dependency
-        exclude(group = "kofua.app.revanced", module = "apktool-lib")
+// Global dependency substitution to replace non-existent kofua.app.revanced:apktool-lib
+// with the correct org.apktool:apktool-lib from Maven Central
+configurations.all {
+    resolutionStrategy.dependencySubstitution {
+        substitute(module("kofua.app.revanced:apktool-lib:2.9.3"))
+            .using(module("org.apktool:apktool-lib:2.9.3"))
+            .because("kofua.app.revanced:apktool-lib:2.9.3 doesn't exist, using org.apktool:apktool-lib:2.9.3 from Maven Central instead")
     }
+}
+
+dependencies {
+    implementation(libs.revanced.patcher)
     implementation(libs.smali)
     // Used in JsonGenerator.
     implementation(libs.gson)
-    // Add apktool-lib explicitly to override transitive dependency
-    // The custom revanced-patcher expects kofua.app.revanced:apktool-lib:2.9.3
-    // but the actual package is org.apktool:apktool-lib:2.9.3 from Maven Central
-    implementation("org.apktool:apktool-lib:2.9.3")
 }
 
 tasks.jar {
